@@ -1,10 +1,11 @@
 const http = require('http');
 const app = require('./app');
-const cors = require('cors')
+var cors = require('cors');
+
+app.use(cors())
 
 const port = process.env.PORT || 3000;
 
-app.use(cors());
 
 const server = http.createServer(app);
 
