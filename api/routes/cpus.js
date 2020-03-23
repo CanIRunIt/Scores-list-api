@@ -9,14 +9,42 @@ router.get('/', (req, res, next) => {
 
 router.get('/:cpuname', (req, res, next) => {
     const cpu = req.params.cpuname;
+    /* const cpu = new RegExp(req.params.cpuname,'i') */
+/* 
+     function myfunc(s1, s2){
+         str = String(s1)
+         var res = str.match(s2)
+         return res
+     } */
+/* 
+     if(myfunc(cpu,'/i9-\w\s4.0 Ghz/g')){
+        return res.json({
+            score:'1413'
+            })
+     } */
+
+     var str = cpu.substring(0,23);
+
+
+     if(str == "Intel Core i3-5010U 2.1 GHz".substring(0,23)){
+        return res.json({
+          score: "696"
+        })
+    }
+
+     if(String(cpu).match(/i9-/g)){
+        return res.json({
+            score:'1413'
+            })
+     }
 
     switch(cpu) {
         
-        case 'Intel Core i9-9900KS 4.0 GHz (8 cores)':
+      /*   case 'Intel Core i9-9900KS 4.0 GHz (8 cores)':
 return res.json({
 score:'1413'
 })
-break;
+break; */
 
 case 'Intel Core i9-9900KF 3.6 GHz (8 cores)':
 return res.json({

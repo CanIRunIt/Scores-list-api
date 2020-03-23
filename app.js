@@ -7,6 +7,7 @@ app.use(cors())
 const gpuRoutes = require('./api/routes/gpus');
 const cpuRoutes = require('./api/routes/cpus');
 const ramRoutes = require('./api/routes/rams');
+const cpufinlRoutes = require('./api/routes/cpusfinl')
 /* 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -30,6 +31,7 @@ app.options('/url...', function(req, res, next){
 app.use('/gpuscores', gpuRoutes);
 app.use('/cpuscores', cpuRoutes);
 app.use('/ramscores', ramRoutes);
+app.use('/cpuscoresfinl', cpufinlRoutes);
 /* app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
