@@ -12,6 +12,12 @@ router.get('/:gpuname', (req,res,next) => {
 
     var str = gpu.substring(0, 14);
 
+    if(String(gpu).match(/GTX 2/g)){
+        return res.json({
+            score: '1017'
+        })
+    }
+
     if(str == "Quadro GV100".substring(0, 14)){
         return res.json({
          score:'9555'
